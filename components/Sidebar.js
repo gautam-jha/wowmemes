@@ -25,7 +25,7 @@ function Sidebar() {
 
     return (
         <div
-            className={`sticky h-screen top-10 inline col-span-1 bg-white  dark:bg-white dark:bg-opacity-5 mb-5 p-2 sm:left-0 ${styles.sidebar_in_mobile}`}>
+            className={`sticky h-screen top-10 inline col-span-1 bg-white  dark:bg-black dark:bg-opacity-90 mb-5 p-2 sm:left-0 ${styles.sidebar_in_mobile}`}>
             <h4 className="text-lg mt-4 hidden md:block ">Categories</h4>
             {Object.entries({ ...country }).map(([key, value]) => {
                 return (
@@ -35,7 +35,7 @@ function Sidebar() {
                         type="button"
                         className={`${
                             category.includes(key) ? 'bg-blue-700 text-white ' : 'bg-red-50'
-                        } dark:bg-yellow-500 hover:bg-blue-700 dark:border-yellow-500 hover:text-white dark:text-black  font-bold py-1 px-2 rounded m-1 whitespace-nowrap `}>
+                        } dark:bg-yellow-500 hover:bg-blue-700 dark:border-yellow-500 hover:text-white dark:text-black  font-bold py-1 px-2 rounded m-1 whitespace-nowrap mt-2`}>
                         #{value}
                     </button>
                 );
@@ -52,7 +52,7 @@ function Sidebar() {
                             category.substr(category.indexOf('/') + 1) === key
                                 ? 'bg-blue-700 text-white'
                                 : 'bg-red-50'
-                        } dark:bg-yellow-500  hover:bg-blue-700 dark:hover:border-yellow-500  hover:text-white dark:text-black font-bold py-1 px-2 rounded m-1 h-9 whitespace-nowrap  `}>
+                        } dark:bg-yellow-500  hover:bg-blue-700 dark:hover:border-yellow-500  hover:text-white dark:text-black font-bold py-1 px-2 rounded m-1 h-9 whitespace-nowrap  mt-2`}>
                         #{value}
                     </button>
                 );
