@@ -20,10 +20,11 @@ Currently using reddit posts and Dark Theme is inspired by something we all know
 
 ## Screenshots
 <!--![Theme Preview](public/images/screenshot.png?raw=true) -->
-<img src="public/images/screenshot.png?raw=true" align="center" height="480" width="auto" style="margin-right:10px; border:1px solid #000;" >
+<img src="public/images/screenshot.png?raw=true" align="left" height="480" width="auto" style="margin-right:10px; border:1px solid #000;" >
 <img src="public/images/screenshot1.png?raw=true" align="center" height="480" width="auto" style="border:1px solid #000;" >
 
 <hr/>
+
 # Todos
 Please feel free to pick any of them for your contributions.
 - Contributors & credit section
@@ -34,6 +35,7 @@ Please feel free to pick any of them for your contributions.
 
 
 <hr/>
+
 ## Contributors :bust_in_silhouette:
 * **[Vipin Kumar Dinkar](https://github.com/nicestrudeguy)**
 * **[Gautam Jha](https://github.com/gautam-jha)**
