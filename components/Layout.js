@@ -6,8 +6,8 @@ export default function Layout({ children }) {
     return (
         <div className="bg-blue-50 dark:bg-black dark:bg-opacity-80 ">
             <Head>
-                <title>Random Memes</title>
-                <meta name="description" content="Random Memes by Gauti." />
+                <title>MemeHub - Find Best Meme Collections</title>
+                <meta name="description" content="MemeHub - Find Your Favorite Free Memes" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 

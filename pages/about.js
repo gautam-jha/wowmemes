@@ -6,8 +6,8 @@ export default function About() {
     return (
         <div className="bg-blue-50">
             <Head>
-                <title>About - Random Memes</title>
-                <meta name="description" content="Random Memes by Gauti." />
+                <title>About - MemeHub</title>
+                <meta name="description" content="MemeHub - Find Your Favorite Free Memes" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
