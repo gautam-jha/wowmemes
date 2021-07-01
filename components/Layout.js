@@ -9,6 +9,10 @@ export default function Layout({ children }) {
                 <title>MemeHub - Find Best Meme Collections</title>
                 <meta name="description" content="MemeHub - Find Your Favorite Free Memes" />
                 <link rel="icon" href="/favicon.ico" />
+                <meta
+                    name="google-site-verification"
+                    content="ytluGmwzLOUZL24jkQBlizLfKSvv756kraKONPFP4es"
+                />
             </Head>
 
             <Header />
