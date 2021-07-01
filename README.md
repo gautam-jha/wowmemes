@@ -2,9 +2,8 @@
 This app is made to browse random memes without any other annoying reels with stupid songs. This project is just a research based project for now to expore the capabilities of Next.Js
 Currently using reddit posts and Dark Theme is inspired by something we all know.
 
-
-
 <hr/>
+
 ## TechStack Used
 - Next.Js
 - Tailwindcss
