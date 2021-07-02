@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Header from '../components/Header';
+import Navbar from '../components/Navbar';
 import { fetcher } from '../helper';
 
 // export async function
@@ -13,7 +13,7 @@ export default function About({ contributors, repo }) {
                 <meta name="description" content="MemeHub - Find Your Favorite Free Memes" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header />
+            <Navbar />
             <main className="container mx-auto px-4 ">
                 <h2 className="mt-5 title text-xl  from-indigo-900">About {repo.name}</h2>
                 <p className="mt-5">
