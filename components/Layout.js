@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { Header, Footer, Sidebar } from './index';
+import { Navbar, Footer, Sidebar } from './index';
 
 export default function Layout({ children }) {
     return (
@@ -15,7 +15,7 @@ export default function Layout({ children }) {
                 />
             </Head>
 
-            <Header />
+            <Navbar />
             <main className="container mx-auto px-4 pt-10">
                 <div className="sm:flex md:grid  md:grid-cols-3 gap-4">
                     <Sidebar category="funny" />
