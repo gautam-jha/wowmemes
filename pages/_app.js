@@ -6,7 +6,7 @@ import Context from '../components/context';
 import { getMemesByCategory } from '../helper';
 
 function MyApp({ Component, pageProps }) {
-    const [category, setCategory] = useState('category/funny');
+    const [category, setCategory] = useState('category/dankmemes');
     const [data, setData] = useState({});
     const [memes, setMemes] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
     };
 
     const loadNext = async () => {
-        const d = await getMemesByCategory(category, 4);
+        const d = await getMemesByCategory(category, 2);
         // console.log(d.memes)
         setMemes([
             ...new Map([...memes, ...(d?.memes ?? d)].map(item => [item.ups, item])).values()
@@ -29,7 +29,11 @@ function MyApp({ Component, pageProps }) {
     useEffect(() => {
         suffle();
         setMemes([]);
-        loadNext();
+
+        return () =>
+            setTimeout(() => {
+                loadNext();
+            }, 1000);
     }, [category]);
 
     return (

@@ -4,7 +4,7 @@ import Header from '../components/Header';
 // export async function
 export default function About() {
     return (
-        <div className="bg-blue-50">
+        <div className="bg-blue-50 dark:bg-black dark:bg-opacity-90">
             <Head>
                 <title>About - MemeHub</title>
                 <meta name="description" content="MemeHub - Find Your Favorite Free Memes" />

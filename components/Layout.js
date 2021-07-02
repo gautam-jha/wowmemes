@@ -19,7 +19,7 @@ export default function Layout({ children }) {
             <main className="container mx-auto px-4 pt-10">
                 <div className="sm:flex md:grid  md:grid-cols-3 gap-4">
                     <Sidebar category="funny" />
-                    <div className="col-span-2">{children}</div>
+                    <div className="col-span-1">{children}</div>
                 </div>
                 <Footer />
             </main>
