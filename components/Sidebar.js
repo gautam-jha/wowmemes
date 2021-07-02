@@ -4,7 +4,7 @@ import Context from './context';
 import styles from '../styles/Meme.module.css';
 
 function Sidebar() {
-    const { category, setCategory } = useContext(Context);
+    const { category, setCategory, setMemes } = useContext(Context);
     const { theme, setTheme } = useTheme();
 
     const categories = {
@@ -31,7 +31,10 @@ function Sidebar() {
                 return (
                     <button
                         key={key}
-                        onClick={() => setCategory(`country/${key}`)}
+                        onClick={() => {
+                            setMemes([]);
+                            setCategory(`country/${key}`);
+                        }}
                         type="button"
                         className={`${
                             category.includes(key) ? 'bg-blue-700 text-white ' : 'bg-red-50'

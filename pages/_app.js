@@ -27,13 +27,12 @@ function MyApp({ Component, pageProps }) {
     };
 
     useEffect(() => {
-        suffle();
         setMemes([]);
-
-        return () =>
-            setTimeout(() => {
-                loadNext();
-            }, 1000);
+        suffle();
+        loadNext();
+        return () => {
+            setMemes([]);
+        };
     }, [category]);
 
     return (
