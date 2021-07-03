@@ -27,6 +27,8 @@ function Meme(props) {
                 srcSet={`${data.url}  375w`}
                 alt={data.title}
                 sizes="(min-width: 400px) 80vw, 100vw"
+                height="400"
+                width="400"
             />
             <div className="px-6 py-4 m-1 social_icons">
                 <div className="font-bold text-sm mb-2">{data.title}</div>
