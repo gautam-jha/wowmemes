@@ -8,7 +8,6 @@ import { getMemesByCategory } from '../helper';
 
 function MyApp({ Component, pageProps }) {
     const router = useRouter();
-    console.log(router);
     const [category, setCategory] = useState('category/dankmemes');
     const [data, setData] = useState({});
     const [memes, setMemes] = useState([]);
