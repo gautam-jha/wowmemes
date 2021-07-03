@@ -9,6 +9,7 @@ const Loader = props => (
             viewBox="0 0 400 490"
             backgroundColor="#575757"
             foregroundColor="#383838"
+            className="sm:max-w-full w-screen"
             {...props}>
             <rect x="82" y="413" rx="2" ry="2" width="250" height="10" />
             <rect x="0" y="0" rx="2" ry="2" width="400" height="400" />

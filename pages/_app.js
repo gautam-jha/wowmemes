@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
     };
 
     const loadNext = async () => {
-        const d = await getMemesByCategory(category, 4);
+        const d = await getMemesByCategory(category, 3);
         // console.log(d.memes)
         setMemes([
             ...new Map([...memes, ...(d?.memes ?? d)].map(item => [item.ups, item])).values()

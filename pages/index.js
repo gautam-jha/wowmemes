@@ -27,7 +27,7 @@ export default function Home({ initialMemes }) {
                     ))}
                 </InfiniteScroll>
             ) : (
-                <div>Loading...</div>
+                <Loader />
             )}
         </Layout>
     );
