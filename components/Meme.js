@@ -21,7 +21,7 @@ function Meme(props) {
 
     return data && !loading ? (
         <div
-            className={`${styles.meme} rounded overflow-hidden shadow-lg bg-white dark:bg-white dark:bg-opacity-5 dark:border-black dark:hover:border-yellow-300`}>
+            className={`${styles.meme} rounded overflow-hidden shadow-lg bg-white dark:bg-white dark:bg-opacity-5 dark:border-black dark:hover:border-yellow-300 mt-5`}>
             <img
                 className="w-full lazy"
                 srcSet={`${data.url}  375w`}

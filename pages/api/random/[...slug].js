@@ -1,11 +1,17 @@
 function handler({ query: { slug } }, res) {
-    const type = slug[0]; // category or country
     let page = slug[1];
     const count = slug[2];
 
-    if (type === 'country' && page === 'india') {
+    if (page === 'india') {
         // choose random pick tag for country
-        const india = ['IndianDankMemes', 'IndianMeyMeys', 'indiameme'];
+        const india = [
+            'IndianDankMemes',
+            'merimarzi',
+            'IndianMeyMeys',
+            'chutyapa',
+            'indiameme',
+            'bakchodi'
+        ];
         const pick = india[Math.floor(Math.random() * india.length)];
         page = pick;
     }

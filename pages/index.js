@@ -1,6 +1,5 @@
 import { useContext, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { fetcher } from '../helper';
 import { Meme } from '../components';
 import Layout from '../components/Layout';
 import Context from '../components/context';
@@ -35,10 +34,10 @@ export default function Home({ initialMemes }) {
 }
 
 export async function getStaticProps() {
-    const data = await fetcher('https://meme-api.herokuapp.com/gimme/2');
+    // const data = await fetcher('https://meme-api.herokuapp.com/gimme/2');
 
     return {
-        props: { initialMemes: data?.memes },
+        props: { initialMemes: [] },
         revalidate: 15
     };
 }

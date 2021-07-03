@@ -1,4 +1,5 @@
 // import '../styles/globals.css';
+import { useRouter } from 'next/router';
 import { ThemeProvider } from 'next-themes';
 import { useState, useEffect } from 'react';
 import 'tailwindcss/tailwind.css';
@@ -6,6 +7,8 @@ import Context from '../components/context';
 import { getMemesByCategory } from '../helper';
 
 function MyApp({ Component, pageProps }) {
+    const router = useRouter();
+    console.log(router);
     const [category, setCategory] = useState('category/dankmemes');
     const [data, setData] = useState({});
     const [memes, setMemes] = useState([]);
@@ -19,7 +22,7 @@ function MyApp({ Component, pageProps }) {
     };
 
     const loadNext = async () => {
-        const d = await getMemesByCategory(category, 2);
+        const d = await getMemesByCategory(category, 4);
         // console.log(d.memes)
         setMemes([
             ...new Map([...memes, ...(d?.memes ?? d)].map(item => [item.ups, item])).values()
@@ -28,8 +31,8 @@ function MyApp({ Component, pageProps }) {
 
     useEffect(() => {
         setMemes([]);
-        suffle();
-        loadNext();
+        if (router.pathname === '/random') suffle();
+        if (router.pathname === '/') loadNext();
         return () => {
             setMemes([]);
         };

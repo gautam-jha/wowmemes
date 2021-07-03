@@ -6,10 +6,11 @@ function Sidebar() {
     const { category, setCategory, setMemes } = useContext(Context);
 
     const categories = {
+        india: 'India',
         memes: 'Memes',
         wholesomememes: 'Wholesome memes',
         dankmemes: 'Dank memes',
-        historymemes: 'History memes',
+        wtf: 'WTF',
         humour: 'Humour',
         comedyheaven: 'Funny',
         animememes: 'Anime',
@@ -17,43 +18,27 @@ function Sidebar() {
         comic: 'Comic'
     };
 
-    const country = {
-        india: 'India'
-    };
+    // const country = {};
 
     return (
         <div
-            className={`sticky h-screen top-10 inline col-span-1 bg-white  dark:bg-black dark:bg-opacity-90 mb-5 pt-4 sm:left-0 ${styles.sidebar_in_mobile}`}>
-            <h4 className="text-lg mt-4 hidden md:block ">Categories</h4>
-            {Object.entries({ ...country }).map(([key, value]) => {
-                return (
-                    <button
-                        key={key}
-                        onClick={() => {
-                            setMemes([]);
-                            setCategory(`country/${key}`);
-                        }}
-                        type="button"
-                        className={`${
-                            category.includes(key) ? 'bg-blue-700 text-white ' : 'bg-red-50'
-                        } dark:bg-yellow-500 hover:bg-blue-700 dark:border-yellow-500 hover:text-white dark:text-black  font-bold py-1 px-2 rounded m-1 whitespace-nowrap mt-2`}>
-                        #{value}
-                    </button>
-                );
-            })}
+            className={`sticky h-96 top-14 inline col-span-1 bg-white  dark:bg-black dark:bg-opacity-90 sm:left-0 ${styles.sidebar_in_mobile}`}>
+            <h4 className="text-lg mt-4 hidden md:block ">Tags</h4>
+
             {Object.entries({ ...categories }).map(([key, value]) => {
                 return (
                     <button
                         key={key}
                         onClick={() => {
+                            setMemes([]);
                             setCategory(`category/${key}`);
                         }}
                         type="button"
                         className={`${
                             category.substr(category.indexOf('/') + 1) === key
-                                ? 'bg-blue-700 text-white'
-                                : 'bg-red-50'
-                        } dark:bg-yellow-500  hover:bg-blue-700 dark:hover:border-yellow-500  hover:text-white dark:text-black font-bold py-1 px-2 rounded m-1 h-9 whitespace-nowrap  mt-2`}>
+                                ? 'bg-blue-700 text-white dark:bg-yellow-500'
+                                : 'bg-red-50 dark:bg-gray-500'
+                        }   hover:bg-blue-700 dark:hover:border-yellow-500  hover:text-white dark:text-black font-bold py-1 px-2 rounded m-1 h-9 whitespace-nowrap  mt-2`}>
                         #{value}
                     </button>
                 );

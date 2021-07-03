@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import Layout from '../components/Layout';
 import { Meme } from '../components';
-import { fetcher } from '../helper';
 import Context from '../components/context';
 
 // export async function
@@ -16,7 +15,7 @@ export default function Random({ initalMemes }) {
                 <Meme data={initalMemes} key={initalMemes?.ups} loading={loading} />
             )}
 
-            <div className="autoprefixer flex mb-10 justify-center sticky bottom-0">
+            <div className="autoprefixer flex mb-10 mt-10 justify-center sticky bottom-0">
                 <button
                     type="button"
                     onClick={() => suffle()}
@@ -36,10 +35,10 @@ export default function Random({ initalMemes }) {
 }
 
 export async function getStaticProps() {
-    const data = await fetcher('https://meme-api.herokuapp.com/gimme');
+    // const data = await fetcher('https://meme-api.herokuapp.com/gimme');
 
     return {
-        props: { initalMemes: data },
+        props: { initalMemes: {} },
         revalidate: 15
     };
 }

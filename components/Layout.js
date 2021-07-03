@@ -16,7 +16,7 @@ export default function Layout({ children }) {
             </Head>
 
             <Navbar />
-            <main className="container mx-auto px-4 pt-10">
+            <main className="container mx-auto px-4">
                 <div className="sm:flex md:grid  md:grid-cols-3 gap-4">
                     <Sidebar category="funny" />
                     <div className="col-span-1">{children}</div>
