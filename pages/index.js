@@ -10,6 +10,7 @@ export default function Home({ initialMemes }) {
 
     useEffect(() => {
         setMemes(initialMemes);
+        loadNext();
     }, []);
 
     return (
@@ -20,14 +21,24 @@ export default function Home({ initialMemes }) {
                     next={async () => loadNext()}
                     hasMore={1}
                     className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-5"
-                    loader={<Loader />}
+                    loader={
+                        <>
+                            {' '}
+                            <Loader />
+                            <Loader />{' '}
+                        </>
+                    }
                     endMessage={<h4>Nothing more to show</h4>}>
                     {memes.map(meme => (
                         <Meme data={meme} key={meme.ups} />
                     ))}
                 </InfiniteScroll>
             ) : (
-                <Loader />
+                <>
+                    {' '}
+                    <Loader />
+                    <Loader />{' '}
+                </>
             )}
         </Layout>
     );

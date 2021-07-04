@@ -13,6 +13,7 @@ export default function Layout({ children }) {
                     name="google-site-verification"
                     content="ytluGmwzLOUZL24jkQBlizLfKSvv756kraKONPFP4es"
                 />
+                {/*eslint-disable */}
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -22,6 +23,7 @@ export default function Layout({ children }) {
                             })(window,document,'script','dataLayer','G-392E7F5M2E');`
                     }}
                 />
+                /*eslint-enable */
             </Head>
 
             <Navbar />
