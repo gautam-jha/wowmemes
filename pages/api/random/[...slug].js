@@ -8,9 +8,10 @@ function handler({ query: { slug } }, res) {
             'IndianDankMemes',
             'merimarzi',
             'IndianMeyMeys',
-            'chutyapa',
+            'SaimanSays',
             'indiameme',
-            'bakchodi'
+            'bakchodi',
+            'indianpeoplefacebook'
         ];
         const pick = india[Math.floor(Math.random() * india.length)];
         page = pick;
