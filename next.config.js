@@ -1,6 +1,9 @@
 const path = require('path');
 
 module.exports = {
+    images: {
+        disableStaticImages: true
+    },
     reactStrictMode: true,
 
     trailingSlash: true,
