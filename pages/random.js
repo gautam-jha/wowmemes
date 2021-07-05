@@ -6,10 +6,14 @@ import Context from '../components/context';
 // export async function
 export default function Random() {
     const { suffle, data, loading } = useContext(Context);
-
+    console.log('data', data);
     return (
         <Layout>
-            {data && <Meme data={data} key={data?.ups} loading={loading} />}
+            {data && data?.ups ? (
+                <Meme data={data} key={data?.ups} loading={loading} />
+            ) : (
+                <Meme data={data[0]} key={data[0]?.ups} loading={loading} />
+            )}
 
             <div className="autoprefixer flex mb-10 mt-10 justify-center sticky bottom-0">
                 <button
