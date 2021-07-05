@@ -18,9 +18,10 @@ import styles from '../styles/Meme.module.css';
 
 function Meme(props) {
     const { data, loading } = props;
-    let { url } = data;
 
-    const urlObj = new URL(url);
+    const urlObj = new URL(
+        data?.url ? data.url : 'https://fakeurltobypass.com/loading-buffering.gif'
+    );
 
     return data && !loading ? (
         <div
