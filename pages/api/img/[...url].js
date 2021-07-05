@@ -10,7 +10,6 @@ async function handler({ query: { url } }, res) {
     const newUrl = decodeURIComponent(url[0]);
     res.status(200);
     const buff = await request.get(newUrl);
-    console.log(newUrl, buff);
     res.send(buff);
 }
 
