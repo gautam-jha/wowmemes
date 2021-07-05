@@ -24,7 +24,7 @@ function Meme(props) {
             className={`${styles.meme} rounded overflow-hidden shadow-lg bg-white dark:bg-white dark:bg-opacity-5 dark:border-black dark:hover:border-yellow-300 mt-5`}>
             <Image
                 className="w-full lazy"
-                srcSet={`/api/img/${encodeURIComponent(data.url)}`}
+                src={`/api/img/${encodeURIComponent(data.url)}`}
                 alt={data.title}
                 sizes="(min-width: 400px) 80vw, 100vw"
                 height="400"
