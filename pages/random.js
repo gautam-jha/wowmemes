@@ -6,7 +6,7 @@ import Context from '../components/context';
 // export async function
 export default function Random() {
     const { suffle, data, loading } = useContext(Context);
-    console.log('data', data);
+    // console.log('data', data);
     return (
         <Layout>
             {data && data?.ups ? (
