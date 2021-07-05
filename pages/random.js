@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Layout from '../components/Layout';
 import { Meme } from '../components';
 import Context from '../components/context';
@@ -7,6 +7,9 @@ import Context from '../components/context';
 export default function Random() {
     const { suffle, data, loading } = useContext(Context);
     // console.log('data', data);
+    useEffect(() => {
+        suffle();
+    }, []);
     return (
         <Layout>
             {data && data?.ups ? (
