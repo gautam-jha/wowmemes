@@ -12,19 +12,22 @@ import {
     // WhatsappShareButton,
     // WhatsappIcon
 } from 'next-share';
-// import Image from 'next/image';
+import Image from 'next/image';
 import Loader from './Loader';
 import styles from '../styles/Meme.module.css';
 
 function Meme(props) {
     const { data, loading } = props;
+    let { url } = data;
+
+    const urlObj = new URL(url);
 
     return data && !loading ? (
         <div
             className={`${styles.meme} rounded overflow-hidden shadow-lg bg-white dark:bg-white dark:bg-opacity-5 dark:border-black dark:hover:border-yellow-300 mt-5`}>
-            <img
+            <Image
                 className="w-full lazy"
-                src={`/api/img/${encodeURIComponent(data.url)}`}
+                src={`https://i2.wp.com/${urlObj.hostname}${urlObj.pathname}`}
                 alt={data.title}
                 sizes="(min-width: 400px) 80vw, 100vw"
                 height="400"

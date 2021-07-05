@@ -2,10 +2,9 @@ const path = require('path');
 
 module.exports = {
     images: {
-        disableStaticImages: true
+        domains: ['i2.wp.com']
     },
     reactStrictMode: true,
-
     trailingSlash: true,
     webpackDevMiddleware: config => {
         const newConfig = { ...config };
