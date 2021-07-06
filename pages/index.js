@@ -15,7 +15,7 @@ export default function Home({ initialMemes }) {
 
     return (
         <Layout>
-            {memes ? (
+            {!memes ? (
                 <InfiniteScroll
                     dataLength={memes.length + 5}
                     next={async () => loadNext()}

@@ -1,7 +1,7 @@
 import ContentLoader from 'react-content-loader';
 
 const Loader = props => (
-    <div className="rounded overflow-hidden shadow-lg bg-white dark:bg-white dark:bg-opacity-5 dark:border-black dark:hover:border-yellow-300 mt-5">
+    <div className="rounded overflow-hidden shadow-lg bg-white dark:bg-white dark:bg-opacity-5 dark:border-black dark:hover:border-yellow-300 mt-5 content-center">
         <ContentLoader
             speed={2}
             width={400}
@@ -9,7 +9,7 @@ const Loader = props => (
             viewBox="0 0 400 490"
             backgroundColor="#575757"
             foregroundColor="#383838"
-            className="sm:max-w-full w-screen"
+            className="sm:max-w-full mx-auto"
             {...props}>
             <rect x="82" y="413" rx="2" ry="2" width="250" height="10" />
             <rect x="0" y="0" rx="2" ry="2" width="400" height="400" />
