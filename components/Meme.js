@@ -31,6 +31,7 @@ function Meme(props) {
                 src={`https://i2.wp.com/${urlObj.hostname}${urlObj.pathname}`}
                 alt={data.title}
                 sizes="(min-width: 400px) 80vw, 100vw"
+                layout="responsive"
                 height="400"
                 width="400"
             />

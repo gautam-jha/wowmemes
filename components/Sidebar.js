@@ -22,7 +22,7 @@ function Sidebar() {
 
     return (
         <div
-            className={`sticky h-96 top-14 inline col-span-1 bg-white  dark:bg-black dark:bg-opacity-90 sm:left-0 ${styles.sidebar_in_mobile}`}>
+            className={`sticky h-96 top-14 inline col-span-1 bg-white  dark:bg-black dark:bg-opacity-90 sm:left-0 z-10 ${styles.sidebar_in_mobile}`}>
             <h4 className="text-lg mt-4 hidden md:block ">Tags</h4>
 
             {Object.entries({ ...categories }).map(([key, value]) => {
