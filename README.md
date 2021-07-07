@@ -29,11 +29,8 @@ Currently using reddit posts and Dark Theme is inspired by something we all know
 
 # Todos
 Please feel free to pick any of them for your contributions.
-- Contributors & credit section
 - 9 Gag scrapper
-- Post as per user interest
-- Mobile Header
-- Login for Customized View and Tags
+- Personalized Tags Suggestion and Configuration
 
 
 <hr/>
