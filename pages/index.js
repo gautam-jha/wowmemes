@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import absoluteUrl from 'next-absolute-url';
 import { Meme } from '../components';
 import Layout from '../components/Layout';
 import Context from '../components/context';
@@ -44,12 +45,16 @@ export default function Home({ featured }) {
     );
 }
 
-export async function getStaticProps() {
+Home.getInitialProps = async ({ req }) => {
     // console.log(process.env.NODE_ENV);
     // console.log(process.env.VERCEL_URL);
-    const data = await fetcher(`http://${process.env.VERCEL_URL}/api/gags`);
+    // console.log(req);
+    const { origin } = absoluteUrl(req, req.headers.host);
+
+    const data = await fetcher(`${origin}/api/gags/`);
     return {
+        // fallback: false
         props: { initialMemes: [], featured: data },
         revalidate: 600
     };
-}
+};
