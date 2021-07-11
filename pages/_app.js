@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
         setMemes([
             ...new Map([...memes, ...(d?.memes ?? d)].map(item => [item.ups, item])).values()
         ]);
-        console.log(memes.length);
+        // console.log(memes.length);
     };
 
     useEffect(() => {

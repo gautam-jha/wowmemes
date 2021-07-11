@@ -45,9 +45,11 @@ export default function Home({ initialMemes, featured }) {
 }
 
 export async function getStaticProps() {
-    const data = await fetcher(`${process.env.VERCEL_URL}/api/gags`);
+    console.log(process.env.NODE_ENV);
+    console.log(process.env.VERCEL_URL);
+    const data = await fetcher(`http://${process.env.VERCEL_URL}/api/gags`);
     return {
         props: { initialMemes: [], featured: data },
-        revalidate: 7200
+        revalidate: 600
     };
 }
