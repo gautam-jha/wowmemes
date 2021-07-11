@@ -13,8 +13,8 @@ import {
     // WhatsappIcon
 } from 'next-share';
 import Image from 'next/image';
-import Loader from './Loader';
 import { SRLWrapper } from 'simple-react-lightbox';
+import Loader from './Loader';
 
 import styles from '../styles/Meme.module.css';
 
