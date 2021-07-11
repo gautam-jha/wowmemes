@@ -6,11 +6,11 @@ import Context from '../components/context';
 import Loader from '../components/Loader';
 import { fetcher } from '../helper';
 
-export default function Home({ initialMemes, featured }) {
-    const { loadNext, memes, setMemes } = useContext(Context);
+export default function Home({ featured }) {
+    const { loadNext, memes } = useContext(Context);
 
     useEffect(() => {
-        setMemes(initialMemes);
+        // setMemes(initialMemes);
         loadNext();
     }, []);
 
@@ -45,8 +45,8 @@ export default function Home({ initialMemes, featured }) {
 }
 
 export async function getStaticProps() {
-    console.log(process.env.NODE_ENV);
-    console.log(process.env.VERCEL_URL);
+    // console.log(process.env.NODE_ENV);
+    // console.log(process.env.VERCEL_URL);
     const data = await fetcher(`http://${process.env.VERCEL_URL}/api/gags`);
     return {
         props: { initialMemes: [], featured: data },

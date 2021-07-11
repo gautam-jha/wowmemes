@@ -1,3 +1,8 @@
+.feat_img img {
+    /* max-width: 420px; */
+    margin: 0 auto;
+    object-fit: scale-down;
+}
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {

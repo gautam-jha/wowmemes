@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { ThemeProvider } from 'next-themes';
 import { useState, useEffect, useRef } from 'react';
 import 'tailwindcss/tailwind.css';
+import SimpleReactLightbox from 'simple-react-lightbox';
 import Context from '../components/context';
 import { getMemesByCategory } from '../helper';
 
@@ -63,7 +64,9 @@ function MyApp({ Component, pageProps }) {
         <Context.Provider
             value={{ category, setCategory, suffle, loadNext, data, loading, memes, setMemes }}>
             <ThemeProvider attribute="class">
-                <Component {...pageProps} />
+                <SimpleReactLightbox>
+                    <Component {...pageProps} />
+                </SimpleReactLightbox>
             </ThemeProvider>
         </Context.Provider>
     );

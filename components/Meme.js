@@ -14,6 +14,8 @@ import {
 } from 'next-share';
 import Image from 'next/image';
 import Loader from './Loader';
+import { SRLWrapper } from 'simple-react-lightbox';
+
 import styles from '../styles/Meme.module.css';
 
 function Meme(props) {
@@ -26,15 +28,17 @@ function Meme(props) {
     return data && !loading ? (
         <div
             className={`${styles.meme} rounded overflow-hidden shadow-lg bg-white dark:bg-white dark:bg-opacity-5 dark:border-black dark:hover:border-yellow-300 mt-5`}>
-            <Image
-                className="w-full lazy"
-                src={`https://i2.wp.com/${urlObj.hostname}${urlObj.pathname}`}
-                alt={data.title}
-                sizes="(min-width: 400px) 80vw, 100vw"
-                layout="responsive"
-                height="400"
-                width="400"
-            />
+            <SRLWrapper>
+                <Image
+                    className="w-full lazy"
+                    src={`https://i2.wp.com/${urlObj.hostname}${urlObj.pathname}`}
+                    alt={data.title}
+                    sizes="(min-width: 400px) 80vw, 100vw"
+                    layout="responsive"
+                    height="400"
+                    width="400"
+                />
+            </SRLWrapper>
             <div className="px-6 py-4 m-1 social_icons">
                 <div className="font-bold text-sm mb-2">{data.title}</div>
                 <FacebookShareButton
