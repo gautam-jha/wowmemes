@@ -1,4 +1,5 @@
 // import '../styles/globals.css';
+import '../styles/Features.component.css';
 import { useRouter } from 'next/router';
 import { ThemeProvider } from 'next-themes';
 import { useState, useEffect, useRef } from 'react';

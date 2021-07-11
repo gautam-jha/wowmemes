@@ -4,8 +4,9 @@ import { Meme } from '../components';
 import Layout from '../components/Layout';
 import Context from '../components/context';
 import Loader from '../components/Loader';
+import { fetcher } from '../helper';
 
-export default function Home({ initialMemes }) {
+export default function Home({ initialMemes, featured }) {
     const { loadNext, memes, setMemes } = useContext(Context);
 
     useEffect(() => {
@@ -14,7 +15,7 @@ export default function Home({ initialMemes }) {
     }, []);
 
     return (
-        <Layout>
+        <Layout featured={featured}>
             {memes ? (
                 <InfiniteScroll
                     dataLength={memes.length + 5}
@@ -44,10 +45,9 @@ export default function Home({ initialMemes }) {
 }
 
 export async function getStaticProps() {
-    // const data = await fetcher('https://meme-api.herokuapp.com/gimme/2');
-
+    const data = await fetcher(`${process.env.VERCEL_URL}/api/gags`);
     return {
-        props: { initialMemes: [] },
-        revalidate: 15
+        props: { initialMemes: [], featured: data },
+        revalidate: 7200
     };
 }

@@ -1,9 +1,10 @@
 import Head from 'next/head';
+// import { fetcher } from '../helper';
 
 import { Navbar, Footer, Sidebar, Featured } from './index';
-import styles from '../styles/Meme.module.css';
+// import styles from '../styles/Meme.module.css';
 
-export default function Layout({ children }) {
+export default function Layout({ children, featured }) {
     return (
         <div className="bg-blue-50 dark:bg-black dark:bg-opacity-80 ">
             <Head>
@@ -33,7 +34,7 @@ export default function Layout({ children }) {
                 <div className="grid grid-cols-6 gap-3">
                     <Sidebar category="funny" classname="col-span-6 md:col-span-1" />
                     <div className="col-span-6 md:col-span-3 overflow-auto">{children}</div>
-                    <Featured />
+                    <Featured featured={featured} />
                 </div>
             </main>
             <Footer />

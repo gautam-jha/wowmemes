@@ -23,7 +23,7 @@ function Sidebar({ classname }) {
 
     return (
         <div
-            className={`${classname} sticky top-14 md:top-24 h-screen inline col-span-1 bg-transparent dark:bg-black sm:left-0 z-10 p-0 md:p-2 ${styles.sidebar_in_mobile}`}>
+            className={`${classname} sticky top-14 md:top-24 h-screen inline col-span-1 bg- dark:bg-black md:dark:bg-transparent sm:left-0 z-10 p-0 md:p-2 ${styles.sidebar_in_mobile}`}>
             <h4 className="text-lg my-4 hidden md:block ">Tags</h4>
             {Object.entries({ ...categories }).map(([key, value]) => {
                 return (
