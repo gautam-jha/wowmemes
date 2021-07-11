@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
-import { Navbar, Footer, Sidebar } from './index';
+import { Navbar, Footer, Sidebar, Featured } from './index';
+import styles from '../styles/Meme.module.css';
 
 export default function Layout({ children }) {
     return (
@@ -13,7 +14,7 @@ export default function Layout({ children }) {
                     name="google-site-verification"
                     content="ytluGmwzLOUZL24jkQBlizLfKSvv756kraKONPFP4es"
                 />
-                {/*eslint-disable */}
+                {/* eslint-disable */}
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -23,17 +24,19 @@ export default function Layout({ children }) {
                             })(window,document,'script','dataLayer','G-392E7F5M2E');`
                     }}
                 />
-                /*eslint-enable */
+                {/* eslint-enable */}
             </Head>
 
             <Navbar />
-            <main className="container mx-auto px-4">
-                <div className="sm:flex md:grid  md:grid-cols-3 gap-4">
-                    <Sidebar category="funny" />
-                    <div className="col-span-1">{children}</div>
+
+            <main className="container mx-auto px-4 ">
+                <div className="grid grid-cols-6 gap-3">
+                    <Sidebar category="funny" classname="col-span-6 md:col-span-1" />
+                    <div className="col-span-6 md:col-span-3 overflow-auto">{children}</div>
+                    <Featured />
                 </div>
-                <Footer />
             </main>
+            <Footer />
         </div>
     );
 }

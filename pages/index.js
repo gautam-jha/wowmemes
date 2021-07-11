@@ -20,7 +20,7 @@ export default function Home({ initialMemes }) {
                     dataLength={memes.length + 5}
                     next={async () => loadNext()}
                     hasMore={1}
-                    className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-5"
+                    className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-5 justify-start"
                     loader={
                         <>
                             <Loader />

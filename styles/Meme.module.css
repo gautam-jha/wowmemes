@@ -13,12 +13,14 @@
     margin-right: 8px !important;
 }
 
+.mid_container {
+    height: calc(100vh - 90px);
+}
+
 @media (max-width: 600px) {
-
-        .sidebar_in_mobile{
-            display: flex;
-            overflow: auto;
-            height: 48px;
-        }
-
+    .sidebar_in_mobile {
+        display: flex;
+        overflow: auto;
+        height: 48px;
+    }
 }
