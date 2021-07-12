@@ -17,7 +17,7 @@ function Featured({ featured }) {
                                 <div key={f.id} className="meme  p-3">
                                     {f.content.includes('jpg') || f.content.includes('png') ? (
                                         <div
-                                            className="feat_img w-full"
+                                            className="feat_img w-full overflow-hidden"
                                             style={{
                                                 // width: '400px',
                                                 height: '200px',
