@@ -5,7 +5,7 @@ function Featured({ featured }) {
     // console.log(featured);f
     return (
         <div
-            className="col-span-2 sticky top-24 right-0 h-screen overflow-auto no-scrollbar p-4 meme"
+            className="col-span-2 sticky top-24 right-0 h-screen hidden md:block overflow-auto no-scrollbar p-4 meme"
             style={{ maxHeight: 'calc(100vh - 150px)' }}>
             <div className=" ">
                 <h3 className="text-left font-medium">Trending</h3>

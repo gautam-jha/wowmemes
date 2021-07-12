@@ -5,7 +5,7 @@ const { Scraper } = NineGag;
 
 export default async (req, res) => {
     try {
-        const scraper = new Scraper(5, 'fresh', 0);
+        const scraper = new Scraper(10, 'hot', 0);
         const posts = await scraper.scrap();
         try {
             res.statusCode = 200;
