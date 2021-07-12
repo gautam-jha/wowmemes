@@ -8,22 +8,29 @@ function Sidebar({ classname }) {
     const categories = {
         india: 'India',
         memes: 'Memes',
+        darkmemers: 'Dark',
+        dankmemes: 'Dank',
+        nsfwmemes: 'NSFW',
+        techmemes: 'Tech',
+        programmerhumor: 'Developers',
         wholesomememes: 'Wholesome',
-        dankmemes: 'Dank memes',
-        wtf: 'WTF',
         humour: 'Humour',
         comedyheaven: 'Funny',
+        savagememes: 'Savage',
+        sarcasm: 'Sarcasm',
+        relationshipmemes: 'Relationshit',
         animememes: 'Anime',
         // hentai: 'Hentai', // research purposes only
-        nsfwmemes: 'NSFW',
-        comic: 'Comic'
+        gaming: 'Gaming',
+        comic: 'Comic',
+        wtf: 'WTF'
     };
 
     // const country = {};
 
     return (
         <div
-            className={`${classname} sticky top-14 md:top-24 h-screen inline col-span-1 bg- dark:bg-black md:dark:bg-transparent sm:left-0 z-10 p-0 md:p-2 ${styles.sidebar_in_mobile}`}>
+            className={`${classname} sticky top-14 md:top-24 h-screen inline col-span-1 dark:bg-black md:dark:bg-transparent sm:left-0 z-10 p-0 md:p-2 ${styles.sidebar_in_mobile}`}>
             <h4 className="text-lg my-4 hidden md:block ">Tags</h4>
             {Object.entries({ ...categories }).map(([key, value]) => {
                 return (

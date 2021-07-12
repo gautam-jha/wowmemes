@@ -53,8 +53,7 @@ Home.getInitialProps = async ({ req }) => {
 
     const data = await fetcher(`${origin}/api/gags/`);
     return {
-        // fallback: false
-        props: { initialMemes: [], featured: data },
-        revalidate: 600
+        initialMemes: [],
+        featured: data
     };
 };
