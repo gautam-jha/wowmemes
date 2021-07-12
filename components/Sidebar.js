@@ -15,7 +15,7 @@ function Sidebar({ classname }) {
         comedyheaven: 'Funny',
         animememes: 'Anime',
         // hentai: 'Hentai', // research purposes only
-        //nsfw: 'NSFW',
+        nsfwmemes: 'NSFW',
         comic: 'Comic'
     };
 
