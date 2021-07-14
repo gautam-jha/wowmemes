@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+
 import { useRouter } from 'next/router';
 
 const links = [
@@ -15,7 +17,7 @@ function Header() {
                 <li className="flex px-3 py-2 self-center">
                     <Link href="/">
                         <a className="text-black-500 no-underline text-sm">
-                            <img
+                            <Image
                                 src="/images/memehub.webp"
                                 alt="memehub"
                                 height="50px"
