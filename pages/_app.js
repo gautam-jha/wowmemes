@@ -63,7 +63,7 @@ function MyApp({ Component, pageProps }) {
     return (
         <Context.Provider
             value={{ category, setCategory, suffle, loadNext, data, loading, memes, setMemes }}>
-            <ThemeProvider attribute="class">
+            <ThemeProvider defaultTheme="dark" attribute="class">
                 <SimpleReactLightbox>
                     <Component {...pageProps} />
                 </SimpleReactLightbox>

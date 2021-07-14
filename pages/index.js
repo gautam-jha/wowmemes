@@ -49,7 +49,7 @@ Home.getInitialProps = async ({ req }) => {
     // console.log(process.env.NODE_ENV);
     // console.log(process.env.VERCEL_URL);
     // console.log(req);
-    const { origin } = absoluteUrl(req, req.headers.host);
+    const { origin } = absoluteUrl(req, req?.headers?.host);
 
     const data = await fetcher(`${origin}/api/gags/`);
     return {
