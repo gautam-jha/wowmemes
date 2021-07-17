@@ -10,10 +10,8 @@
     "format": "prettier --write './*/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "dependencies": {
-    "9gag": "^4.0.0",
     "eslintrc-generator": "^1.0.1",
     "next": "^11.0.1",
-    "next-absolute-url": "^1.2.2",
     "next-share": "^0.7.0",
     "next-themes": "^0.0.15",
     "react": "17.x",
