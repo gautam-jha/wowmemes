@@ -36,11 +36,3 @@ export default function Random() {
         </Layout>
     );
 }
-
-export async function getStaticProps() {
-    // const data = await fetcher('https://meme-api.herokuapp.com/gimme');
-    return {
-        props: { initalMemes: {} },
-        revalidate: 15
-    };
-}

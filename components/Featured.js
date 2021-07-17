@@ -1,8 +1,17 @@
 import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
 
-function Featured({ featured }) {
-    // console.log(featured);f
+function Featured(props) {
+    // const  = featured;
+    // eslint-disable-next-line react/destructuring-assignment
+    const posts = props?.featured?.data?.posts;
+
+    console.log('f', posts);
+    // return false;
+    // const {
+    //     posts: { data }
+    // } = featured;
+    // return false;
     return (
         <div
             className="col-span-2 sticky top-24 right-0 h-screen hidden md:block overflow-auto no-scrollbar p-4 meme"
@@ -11,11 +20,11 @@ function Featured({ featured }) {
                 <h3 className="text-left font-medium">Trending</h3>
                 {/* <div className="overflow-auto"> */}
                 <SRLWrapper>
-                    {featured &&
-                        featured.map(f => {
+                    {posts &&
+                        posts?.map(f => {
                             return (
                                 <div key={f.id} className="meme  p-3">
-                                    {f.content.includes('jpg') || f.content.includes('png') ? (
+                                    {f.type !== 'Animated' ? (
                                         <div
                                             className="feat_img w-full overflow-hidden"
                                             style={{
@@ -26,8 +35,18 @@ function Featured({ featured }) {
                                             <Image
                                                 className=" lazy m-auto"
                                                 src={`https://i2.wp.com/${
-                                                    new URL(f.content).hostname
-                                                }${new URL(f.content).pathname}`}
+                                                    new URL(
+                                                        f.type !== 'Animated'
+                                                            ? f.images.image700.webpUrl
+                                                            : f.images.image460sv.vp8Url
+                                                    ).hostname
+                                                }${
+                                                    new URL(
+                                                        f.type !== 'Animated'
+                                                            ? f.images.image700.webpUrl
+                                                            : f.images.image460sv.vp8Url
+                                                    ).pathname
+                                                }`}
                                                 width="400"
                                                 height="200"
                                                 layout="responsive"
@@ -39,7 +58,7 @@ function Featured({ featured }) {
                                             controls="true"
                                             loop
                                             style={{ width: '500px', height: '200px' }}>
-                                            <source src={f.content} />
+                                            <source src={f.images.image460sv.vp8Url} />
                                             <track
                                                 kind="captions"
                                                 srcLang="en"
