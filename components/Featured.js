@@ -2,16 +2,9 @@ import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
 
 function Featured(props) {
-    // const  = featured;
     // eslint-disable-next-line react/destructuring-assignment
     const posts = props?.featured?.data?.posts;
 
-    console.log('f', posts);
-    // return false;
-    // const {
-    //     posts: { data }
-    // } = featured;
-    // return false;
     return (
         <div
             className="col-span-2 sticky top-24 right-0 h-screen hidden md:block overflow-auto no-scrollbar p-4 meme"
