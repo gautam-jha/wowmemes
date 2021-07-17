@@ -1,10 +1,16 @@
 import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
 
-function Featured({ featured }) {
-    // console.log('f', featured);
-    const { data } = featured;
-    const { posts } = data;
+function Featured(props) {
+    // const  = featured;
+    // eslint-disable-next-line react/destructuring-assignment
+    const posts = props?.featured?.data?.posts;
+
+    console.log('f', posts);
+    // return false;
+    // const {
+    //     posts: { data }
+    // } = featured;
     // return false;
     return (
         <div
