@@ -20,7 +20,8 @@
     "react-infinite-scroll-component": "^6.1.0",
     "request": "^2.88.2",
     "simple-react-lightbox": "^3.6.6",
-    "tailwindcss": "^2.2.2"
+    "tailwindcss": "^2.2.2",
+    "vercel": "^23.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",

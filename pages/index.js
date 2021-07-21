@@ -45,20 +45,21 @@ export default function Home({ featured }) {
     );
 }
 
+/**
+ * get static props to get data before rendering component
+ * @date 2021-07-22
+ * @returns {object}
+ */
 export const getStaticProps = async () => {
-    // console.log(process.env.NODE_ENV);
-    // console.log(process.env.VERCEL_URL);
-    // console.log(req);
-    // const { origin } = absoluteUrl(req, req?.headers?.host);
     // https://9gag.com/v1/group-posts/type/fresh?c=0&nsfw=1
-
     // const data = await fetcher(`https://9gag.com/v1/tag-posts/tag/sarcasm/type/fresh?c=0&nsfw=1`);
+
     const data = await fetcher(`https://9gag.com/v1/group-posts/type/fresh?c=0&nsfw=1`);
     // console.log(typeof data, data);
     return {
         props: {
             initialMemes: [],
-            featured: data
+            featured: data || {}
         },
         revalidate: 5
     };

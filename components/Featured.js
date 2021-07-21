@@ -1,10 +1,19 @@
 import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
 
-function Featured(props) {
+/**
+ * Featured section is to rendom a right sidebar with 9gags latest content.
+ * @date 2021-07-22
+ * @param {any} {featured:{data:{posts}}}
+ * @returns {any}
+ */
+const Featured = ({
+    featured: {
+        data: { posts }
+    }
+}) => {
     // eslint-disable-next-line react/destructuring-assignment
-    const posts = props?.featured?.data?.posts;
-
+    // const posts = props?.featured?.data?.posts;
     return (
         <div
             className="col-span-2 sticky top-24 right-0 h-screen hidden md:block overflow-auto no-scrollbar p-4 meme"
@@ -68,6 +77,6 @@ function Featured(props) {
             </div>
         </div>
     );
-}
+};
 
 export default Featured;

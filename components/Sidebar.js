@@ -8,19 +8,17 @@ function Sidebar({ classname }) {
     const categories = {
         india: 'India',
         memes: 'Memes',
-        darkmemers: 'Dark',
-        dankmemes: 'Dank',
-        nsfwmemes: 'NSFW',
         techmemes: 'Tech',
+        sarcasm: 'Sarcasm',
         programmerhumor: 'Developers',
+        darkmemers: 'Dark',
         wholesomememes: 'Wholesome',
+        dankmemes: 'Dank',
         humour: 'Humour',
         comedyheaven: 'Funny',
         savagememes: 'Savage',
-        sarcasm: 'Sarcasm',
         relationshipmemes: 'Relationshit',
         animememes: 'Anime',
-        // hentai: 'Hentai', // research purposes only
         gaming: 'Gaming',
         comic: 'Comic',
         wtf: 'WTF'
