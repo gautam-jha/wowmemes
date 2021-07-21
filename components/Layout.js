@@ -1,9 +1,13 @@
 import Head from 'next/head';
-// import { fetcher } from '../helper';
-
 import { Navbar, Footer, Sidebar, Featured } from './index';
-// import styles from '../styles/Meme.module.css';
 
+/**
+ * Layout is made to wrap a common layout for multiple pages.
+ * @date 2021-07-22
+ * @param {any} {children
+ * @param {any} featured}
+ * @returns {any}
+ */
 export default function Layout({ children, featured }) {
     return (
         <div className="bg-blue-50 dark:bg-black dark:bg-opacity-80 ">
@@ -15,18 +19,14 @@ export default function Layout({ children, featured }) {
                     name="google-site-verification"
                     content="ytluGmwzLOUZL24jkQBlizLfKSvv756kraKONPFP4es"
                 />
-                {/* eslint-disable */}
-
-                {/* eslint-enable */}
             </Head>
 
             <Navbar />
-
             <main className="container mx-auto px-4 ">
                 <div className="grid grid-cols-6 gap-3">
                     <Sidebar category="funny" classname="col-span-6 md:col-span-1" />
                     <div className="col-span-6 md:col-span-3 overflow-auto">{children}</div>
-                    <Featured featured={featured} />
+                    {featured && <Featured featured={featured} />}
                 </div>
             </main>
             <Footer />
