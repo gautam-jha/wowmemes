@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { useRouter } from 'next/router';
+import ImageLoader from './ImageLoader';
 
 const links = [
     { href: '/about', label: 'About' }
@@ -18,6 +19,7 @@ function Header() {
                     <Link href="/">
                         <a className="text-black-500 no-underline text-sm">
                             <Image
+                                loader={ImageLoader}
                                 src="/images/memehub.webp"
                                 alt="memehub"
                                 height="50px"

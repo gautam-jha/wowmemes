@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
+import ImageLoader from './ImageLoader';
 
 /**
  * Featured section is to rendom a right sidebar with 9gags latest content.
@@ -35,6 +36,7 @@ const Featured = ({
                                                 position: 'relative'
                                             }}>
                                             <Image
+                                                loader={ImageLoader}
                                                 className=" lazy m-auto"
                                                 src={`https://i2.wp.com/${
                                                     new URL(
