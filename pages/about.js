@@ -4,11 +4,6 @@ import { fetcher } from '../helper';
 
 // export async function
 export default function About({ contributors, repo }) {
-    // console.log(contributors, repo);
-    const ClickFunc = () => {
-        return false;
-    };
-
     return (
         <div className="bg-blue-50 dark:bg-black dark:bg-opacity-90">
             <Head>
@@ -37,11 +32,7 @@ export default function About({ contributors, repo }) {
                     <br />
                     Go back to memes
                 </p>
-                <h3
-                    className="mt-5 title text-xl text-center  from-indigo-900"
-                    onClick={() => ClickFunc()}>
-                    Contributors
-                </h3>
+                <h3 className="mt-5 title text-xl text-center  from-indigo-900">Contributors</h3>
                 <dl className="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200">
                     <dt className="sr-only">Authors</dt>
                     <dd>
