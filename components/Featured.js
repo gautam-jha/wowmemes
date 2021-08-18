@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
-import ImageLoader from './ImageLoader';
 
 /**
  * Featured section is to rendom a right sidebar with 9gags latest content.
@@ -15,6 +13,10 @@ const Featured = ({
 }) => {
     // eslint-disable-next-line react/destructuring-assignment
     // const posts = props?.featured?.data?.posts;
+    const getImageUrl = (type, images) => {
+        return new URL(type !== 'Animated' ? images.image700.webpUrl : images.image460sv.vp8Url);
+    };
+
     return (
         <div
             className="col-span-2 sticky top-24 right-0 h-screen hidden md:block overflow-auto no-scrollbar p-4 meme"
@@ -35,26 +37,14 @@ const Featured = ({
                                                 height: '200px',
                                                 position: 'relative'
                                             }}>
-                                            <Image
-                                                loader={ImageLoader}
+                                            <img
                                                 className=" lazy m-auto"
                                                 src={`https://i2.wp.com/${
-                                                    new URL(
-                                                        f.type !== 'Animated'
-                                                            ? f.images.image700.webpUrl
-                                                            : f.images.image460sv.vp8Url
-                                                    ).hostname
-                                                }${
-                                                    new URL(
-                                                        f.type !== 'Animated'
-                                                            ? f.images.image700.webpUrl
-                                                            : f.images.image460sv.vp8Url
-                                                    ).pathname
-                                                }`}
+                                                    getImageUrl(f.type, f.images).hostname
+                                                }${getImageUrl(f.type, f.images).pathname}`}
                                                 width="400"
                                                 height="200"
-                                                layout="responsive"
-                                                // style={{  }}
+                                                alt="Memes"
                                             />
                                         </div>
                                     ) : (

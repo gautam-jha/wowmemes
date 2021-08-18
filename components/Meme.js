@@ -12,12 +12,10 @@ import {
     // WhatsappShareButton,
     // WhatsappIcon
 } from 'next-share';
-import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
 import Loader from './Loader';
 
 import styles from '../styles/Meme.module.css';
-import ImageLoader from './ImageLoader';
 
 function Meme(props) {
     const { data, loading } = props;
@@ -30,8 +28,7 @@ function Meme(props) {
         <div
             className={`${styles.meme} rounded overflow-hidden shadow-lg bg-white dark:bg-white dark:bg-opacity-5 dark:border-black dark:hover:border-yellow-300 mt-5`}>
             <SRLWrapper>
-                <Image
-                    loader={ImageLoader}
+                <img
                     className="w-full lazy"
                     src={`https://i2.wp.com/${urlObj.hostname}${urlObj.pathname}`}
                     alt={data.title}
