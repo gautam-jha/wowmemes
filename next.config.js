@@ -1,5 +1,7 @@
 const path = require('path');
 
+const debug = process.env.NODE_ENV !== 'production';
+
 module.exports = {
     images: {
         domains: ['i2.wp.com']
@@ -21,5 +23,5 @@ module.exports = {
     webpack5: true,
     future: {},
     basePath: process.env.NEXT_PUBLIC_BASE_PATH,
-    assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH
+    assetPrefix: !debug ? 'https://thememehub.github.io/' : ''
 };
