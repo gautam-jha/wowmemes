@@ -19,5 +19,7 @@ module.exports = {
         includePaths: [path.join(__dirname, 'styles')]
     },
     webpack5: true,
-    future: {}
+    future: {},
+    basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+    assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH
 };
