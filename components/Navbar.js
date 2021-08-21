@@ -18,10 +18,10 @@ const Navbar = () => {
                 <Link href="/">
                     <a className="inline-flex items-center p-2 mr-4 ">
                         <img
-                            src="/images/memehub.png"
-                            alt="memehub"
+                            src="/images/logo.png"
+                            alt="WowMemes"
                             height="50px"
-                            style={{ width: 100, height: 'auto' }}
+                            style={{ width: 65, height: 'auto' }}
                         />
                     </a>
                 </Link>

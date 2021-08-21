@@ -17,7 +17,7 @@ function Header() {
                     <Link href="/">
                         <a className="text-black-500 no-underline text-sm">
                             <img
-                                src="/images/memehub.webp"
+                                src="/images/logo.png"
                                 alt="memehub"
                                 height="50px"
                                 style={{ width: 100, height: 'auto' }}
