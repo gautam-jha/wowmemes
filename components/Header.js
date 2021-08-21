@@ -18,7 +18,7 @@ function Header() {
                         <a className="text-black-500 no-underline text-sm">
                             <img
                                 src="/images/logo.png"
-                                alt="memehub"
+                                alt="WowMemes"
                                 height="50px"
                                 style={{ width: 100, height: 'auto' }}
                             />

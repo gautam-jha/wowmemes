@@ -12,8 +12,8 @@ export default function Layout({ children, featured }) {
     return (
         <div className="bg-blue-50 dark:bg-black dark:bg-opacity-80 ">
             <Head>
-                <title>MemeHub - Find Best Meme Collections</title>
-                <meta name="description" content="MemeHub - Find Your Favorite Free Memes" />
+                <title>WowMemes - Find Best Meme Collections</title>
+                <meta name="description" content="WowMemes - Find Your Favorite Free Memes" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta
                     name="google-site-verification"

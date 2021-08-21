@@ -7,8 +7,8 @@ export default function About({ contributors, repo }) {
     return (
         <div className="bg-blue-50 dark:bg-black dark:bg-opacity-90">
             <Head>
-                <title>About - MemeHub</title>
-                <meta name="description" content="MemeHub - Find Your Favorite Free Memes" />
+                <title>About - WowMemes</title>
+                <meta name="description" content="WowMemes - Find Your Favorite Free Memes" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
@@ -74,9 +74,9 @@ export default function About({ contributors, repo }) {
 }
 
 export const getStaticProps = async () => {
-    const repo = await fetcher('https://api.github.com/repos/gautam-jha/memehub');
+    const repo = await fetcher('https://api.github.com/repos/gautam-jha/wowmemes');
     const contributors = await fetcher(
-        'https://api.github.com/repos/gautam-jha/memehub/contributors'
+        'https://api.github.com/repos/gautam-jha/wowmemes/contributors'
     );
     return {
         props: { repo, contributors },
