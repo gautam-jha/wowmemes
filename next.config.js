@@ -23,5 +23,5 @@ module.exports = {
     webpack5: true,
     future: {},
     basePath: process.env.NEXT_PUBLIC_BASE_PATH,
-    assetPrefix: !debug ? 'https://thememehub.github.io/' : ''
+    assetPrefix: !debug ? process.env.NEXT_PUBLIC_BASE_PATH : ''
 };
