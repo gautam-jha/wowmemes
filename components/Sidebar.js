@@ -12,6 +12,7 @@ function Sidebar({ classname }) {
         sarcasm: 'Sarcasm',
         programmerhumor: 'Developers',
         darkmemers: 'Dark',
+        nsfwmemes: 'NSFW',
         wholesomememes: 'Wholesome',
         dankmemes: 'Dank',
         humour: 'Humour',
