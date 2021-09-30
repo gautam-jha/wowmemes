@@ -28,6 +28,7 @@ function Meme(props) {
         <div
             className={`${styles.meme} rounded overflow-hidden shadow-lg bg-white dark:bg-white dark:bg-opacity-5 dark:border-black dark:hover:border-yellow-300 mt-5`}>
             <SRLWrapper>
+                <div className="px-6 py-4 m-1 font-bold text-2xl mb-2">{data.title}</div>
                 <img
                     className="w-full lazy"
                     src={`https://i2.wp.com/${urlObj.hostname}${urlObj.pathname}`}
@@ -39,7 +40,6 @@ function Meme(props) {
                 />
             </SRLWrapper>
             <div className="px-6 py-4 m-1 social_icons">
-                <div className="font-bold text-sm mb-2">{data.title}</div>
                 <FacebookShareButton
                     url={`/api/img/${encodeURIComponent(data.url)}`}
                     quote={data.title}
