@@ -70,7 +70,7 @@ const Navbar = () => {
                 <div
                     className={`${
                         active ? '' : 'hidden'
-                    } w-full lg:inline-flex lg:flex-grow1 lg:w-auto`}>
+                    } w-full lg:inline-flex lg:flex-grow1 lg:w-auto text-center`}>
                     <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto pt-4">
                         <Link href="/">
                             <a className="lg:inline-flex lg:w-auto w-full px-1 py-1 rounded dark:text-white font-bold items-center justify-center hover:bg-yellow-400 hover:text-white ">
@@ -93,7 +93,7 @@ const Navbar = () => {
                         <button
                             aria-label="Toggle Dark Mode"
                             type="button"
-                            className="p-3 h-12 w-12 order-2 md:order-3"
+                            className="p-3 h-12 w-12 mx-auto order-2 md:order-3"
                             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
                             {' '}
                             {theme === 'dark' ? (
