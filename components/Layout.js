@@ -19,6 +19,11 @@ export default function Layout({ children, featured }) {
                     name="google-site-verification"
                     content="ytluGmwzLOUZL24jkQBlizLfKSvv756kraKONPFP4es"
                 />
+                <link rel="manifest" href="/manifest.json" />
+                <link href="/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16" />
+                <link href="/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
+                <link rel="apple-touch-icon" href="/apple-icon.png" />
+                <meta name="theme-color" content="#f59e0b" />
             </Head>
 
             <Navbar />
