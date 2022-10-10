@@ -29,7 +29,12 @@ function Meme(props) {
             <div className="px-6 py-4 m-1 social_icons">
                 <button
                     type="button"
-                    onClick={() => webShare(data)}
+                    onClick={() =>
+                        webShare(data, `https://i2.wp.com/${urlObj.hostname}${urlObj.pathname}`)
+                    }
+                    onTouchEndCapture={() =>
+                        webShare(data, `https://i2.wp.com/${urlObj.hostname}${urlObj.pathname}`)
+                    }
                     className="focus:outline-none inline-block md:hidden">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
