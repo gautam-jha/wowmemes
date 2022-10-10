@@ -1,4 +1,4 @@
-# WowMemes APP 
+# WowMemes APP (PWA) 
 This app is made to browse random memes without any other annoying reels with stupid songs. This project is just a research based project for now to expore the capabilities of Next.Js
 Currently using reddit posts and Dark Theme is inspired by something we all know.
 
@@ -11,6 +11,8 @@ Currently using reddit posts and Dark Theme is inspired by something we all know
 <hr/>
 
 ## Features
+- No ads and shit
+- PWA
 - Infinte Scrolling
 - Random Memes on Click
 - Dark Mode
