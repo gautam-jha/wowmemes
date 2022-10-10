@@ -25,12 +25,9 @@ function Sidebar({ classname }) {
         wtf: 'WTF'
     };
 
-    // const country = {};
-
     return (
         <div
-            className={`${classname} sticky top-14 md:top-24 h-screen inline col-span-1 bg-blue-50 md:bg-transparent dark:bg-black md:dark:bg-transparent sm:left-0 z-10 p-0 md:p-2 no-scrollbar overflow-auto ${styles.sidebar_in_mobile}`}
-            style={{ maxHeight: 'calc(100vh - 150px)' }}>
+            className={`${classname} fixed bottom-0 top-auto md:sticky sidebar-custom md:top-24 inline col-span-1 bg-blue-50 md:bg-transparent dark:bg-black md:dark:bg-transparent left-0 z-10 p-0 md:p-2 no-scrollbar overflow-auto ${styles.sidebar_in_mobile}`}>
             <h4 className="text-lg my-4 hidden md:block ">Tags</h4>
             {Object.entries({ ...categories }).map(([key, value]) => {
                 return (
