@@ -10,11 +10,6 @@ import { fetcher } from '../helper';
 export default function Home({ featured }) {
     const { loadNext, memes } = useContext(Context);
 
-    useEffect(() => {
-        // setMemes(initialMemes);
-        loadNext();
-    }, []);
-
     return (
         <Layout featured={featured}>
             {memes ? (

@@ -45,20 +45,7 @@ function MyApp({ Component, pageProps }) {
         setMemes([]);
         if (router.pathname === '/random') suffle();
         if (router.pathname === '/') loadNext();
-
-        return () => {
-            setMemes([]);
-        };
     }, [category]);
-
-    useEffect(() => {
-        if (prevMemes > 10 && prevMemes === memes.length) {
-            // process here
-            setTimeout(() => {
-                loadNext();
-            }, 3000);
-        }
-    }, [memes]);
 
     return (
         <Context.Provider
