@@ -28,7 +28,7 @@ function handler({ query: { slug } }, res) {
         page = pick;
     }
 
-    fetch(`https://meme-api.herokuapp.com/gimme/${page}/${count}`)
+    fetch(`https://meme-api.com/gimme/${page}/${count}`)
         .then(r => r.json())
         .then(data => {
             res.status(200).json(data);
