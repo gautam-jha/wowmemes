@@ -22,8 +22,6 @@ function MyApp({ Component, pageProps }) {
     const [memes, setMemes] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const prevMemes = usePrevious(memes.length);
-
     const suffle = async () => {
         setLoading(true);
         const resp = await getMemesByCategory(category, 1);

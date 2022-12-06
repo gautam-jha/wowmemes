@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 // import absoluteUrl from 'next-absolute-url';
 import { Meme } from '../components';
