@@ -8,13 +8,6 @@ import SimpleReactLightbox from 'simple-react-lightbox';
 import Context from '../components/context';
 import { getMemesByCategory } from '../helper';
 
-function usePrevious(value) {
-    const ref = useRef();
-    useEffect(() => {
-        ref.current = value;
-    });
-    return ref.current;
-}
 function MyApp({ Component, pageProps }) {
     const router = useRouter();
     const [category, setCategory] = useState('category/memes');
