@@ -2,7 +2,7 @@
 import '../styles/Features.component.css';
 import { useRouter } from 'next/router';
 import { ThemeProvider } from 'next-themes';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import 'tailwindcss/tailwind.css';
 import SimpleReactLightbox from 'simple-react-lightbox';
 import Context from '../components/context';
