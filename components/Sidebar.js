@@ -3,23 +3,24 @@ import Context from './context';
 import styles from '../styles/Meme.module.css';
 
 function Sidebar({ classname }) {
-    const { category, setCategory, setMemes } = useContext(Context);
+    const { category, catChange, setMemes } = useContext(Context);
 
     const categories = {
         india: 'India',
         memes: 'Memes',
-        techmemes: 'Tech',
+        tech: 'Tech',
         sarcasm: 'Sarcasm',
-        programmerhumor: 'Developers',
-        darkmemers: 'Dark',
-        nsfwmemes: 'NSFW',
-        wholesomememes: 'Wholesome',
-        dankmemes: 'Dank',
+        Programmer: 'Programmer',
+        developer: 'Developers',
+        dark: 'Dark',
+        nsfw: 'NSFW',
+        wholesome: 'Wholesome',
+        dank: 'Dank',
         humour: 'Humour',
-        comedyheaven: 'Funny',
-        savagememes: 'Savage',
-        relationshipmemes: 'Relationshit',
-        animememes: 'Anime',
+        funny: 'Funny',
+        savage: 'Savage',
+        relationship: 'Relationshit',
+        anime: 'Anime',
         gaming: 'Gaming',
         comic: 'Comic',
         wtf: 'WTF'
@@ -27,7 +28,7 @@ function Sidebar({ classname }) {
 
     return (
         <div
-            className={`${classname} fixed bottom-0 top-auto md:sticky sidebar-custom md:top-24 inline col-span-1 bg-blue-50 md:bg-transparent dark:bg-black md:dark:bg-transparent left-0 z-10 p-0 md:p-2 no-scrollbar overflow-auto w-screen sm:w-48 ${styles.sidebar_in_mobile}`}>
+            className={`${classname} fixed bottom-0 top-auto md:sticky md:max-h-screen sidebar-custom md:top-24 inline col-span-1 bg-blue-50 md:bg-transparent dark:bg-black md:dark:bg-transparent left-0 z-10 p-0 md:p-2 no-scrollbar overflow-auto w-screen sm:w-48 ${styles.sidebar_in_mobile}`}>
             <h4 className="text-lg my-4 hidden md:block ">Tags</h4>
             {Object.entries({ ...categories }).map(([key, value]) => {
                 return (
@@ -35,7 +36,7 @@ function Sidebar({ classname }) {
                         key={key}
                         onClick={() => {
                             setMemes([]);
-                            setCategory(`category/${key}`);
+                            catChange(key);
                         }}
                         type="button"
                         className={`${

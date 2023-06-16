@@ -7,7 +7,8 @@ const fetcher = async url => {
 };
 
 const getMemesByCategory = async (cat, count) => {
-    const data = await fetcher(`${prefix}/api/random/${cat}/${count}/`);
+    const cursor = count ? `${count}/` : '';
+    const data = await fetcher(`${prefix}/api/gag/${cat}/${cursor}`);
     return data;
 };
 

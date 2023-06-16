@@ -1,6 +1,5 @@
 // import '../styles/globals.css';
 import '../styles/Features.component.css';
-import { useRouter } from 'next/router';
 import { ThemeProvider } from 'next-themes';
 import { useState, useEffect } from 'react';
 import 'tailwindcss/tailwind.css';
@@ -9,38 +8,55 @@ import Context from '../components/context';
 import { getMemesByCategory } from '../helper';
 
 function MyApp({ Component, pageProps }) {
-    const router = useRouter();
-    const [category, setCategory] = useState('category/memes');
+    const [category, setCategory] = useState('memes');
+    const [cursor, setCursor] = useState('c=0');
+
     const [data, setData] = useState({});
     const [memes, setMemes] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const suffle = async () => {
         setLoading(true);
-        const resp = await getMemesByCategory(category, 1);
-        setData(resp?.memes[0]);
+        const resp = await getMemesByCategory(category, cursor);
+        setCursor(resp.data.nextCursor);
+        setData([resp?.data.posts[0]]);
         setLoading(false);
     };
 
     const loadNext = async () => {
-        const sol = memes.length / 2;
-        const count = sol > 8 ? parseInt(Number(sol), 10) : 5;
-        const d = await getMemesByCategory(category, count);
-        setMemes([
-            ...new Map([...memes, ...(d?.memes ?? d)].map(item => [item.ups, item])).values()
-        ]);
+        const d = await getMemesByCategory(category, cursor);
+        setCursor(d.data?.nextCursor);
+        if (!d.data?.posts?.length) {
+            setLoading(false);
+        }
+        setMemes([...memes, ...d.data?.posts]);
         // console.log(memes.length);
     };
 
     useEffect(() => {
         setMemes([]);
-        if (router.pathname === '/random') suffle();
-        if (router.pathname === '/') loadNext();
+        // if (router.pathname === '/random') suffle();
+        loadNext();
     }, [category]);
+
+    const catChange = cat => {
+        setCategory(cat);
+        setMemes([]);
+        setCursor('c=0');
+    };
 
     return (
         <Context.Provider
-            value={{ category, setCategory, suffle, loadNext, data, loading, memes, setMemes }}>
+            value={{
+                category,
+                catChange,
+                suffle,
+                loadNext,
+                data,
+                loading,
+                memes,
+                setMemes
+            }}>
             <ThemeProvider defaultTheme="dark" attribute="class">
                 <SimpleReactLightbox>
                     <Component {...pageProps} />

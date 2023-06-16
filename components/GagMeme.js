@@ -1,12 +1,18 @@
+import React from 'react';
 import { SRLWrapper } from 'simple-react-lightbox';
 import Loader from './Loader';
-
 import styles from '../styles/Meme.module.css';
 import { webShare } from '../helper/sharing';
 
-function Meme(props) {
+function GagMeme(props) {
+    // eslint-disable-next-line react/destructuring-assignment
+    // const posts = props?.featured?.data?.posts;
+
     const { data, loading } = props;
 
+    const getImageUrl = (type, images) => {
+        return new URL(type !== 'Animated' ? images.image700.webpUrl : images.image460sv.vp8Url);
+    };
     const urlObj = new URL(
         data?.url ? data.url : 'https://fakeurltobypass.com/loading-buffering.gif'
     );
@@ -16,15 +22,24 @@ function Meme(props) {
             className={`${styles.meme} rounded overflow-hidden shadow-lg bg-white dark:bg-white dark:bg-opacity-5 dark:border-black dark:hover:border-yellow-300 mt-5`}>
             <SRLWrapper>
                 <div className="px-6 py-4 m-1 font-bold text-2xl mb-2">{data.title}</div>
-                <img
-                    className="w-full lazy"
-                    src={`https://i2.wp.com/${urlObj.hostname}${urlObj.pathname}`}
-                    alt={data.title}
-                    sizes="(min-width: 400px) 80vw, 100vw"
-                    layout="responsive"
-                    height="400"
-                    width="400"
-                />
+                {data.type !== 'Animated' ? (
+                    <img
+                        className="w-full lazy"
+                        src={`https://i2.wp.com/${getImageUrl(data.type, data.images).hostname}${
+                            getImageUrl(data.type, data.images).pathname
+                        }`}
+                        alt={data.title}
+                        sizes="(min-width: 400px) 80vw, 100vw"
+                        layout="responsive"
+                        height="400"
+                        width="400"
+                    />
+                ) : (
+                    <video controls="true" style={{ width: '100%' }}>
+                        <source src={data.images.image460sv.vp8Url} />
+                        <track kind="captions" srcLang="en" label="english_captions" />
+                    </video>
+                )}
             </SRLWrapper>
             <div className="px-6 py-4 m-1 social_icons">
                 <button
@@ -106,4 +121,4 @@ function Meme(props) {
     );
 }
 
-export default Meme;
+export default GagMeme;

@@ -1,12 +1,10 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { useTheme } from 'next-themes';
-import { useRouter } from 'next/router';
 
 const Navbar = () => {
     const [active, setActive] = useState(false);
     const { theme, setTheme } = useTheme();
-    const router = useRouter();
 
     const handleClick = () => {
         setActive(!active);
@@ -25,30 +23,6 @@ const Navbar = () => {
                         />
                     </a>
                 </Link>
-                <div className="flex">
-                    <Link href="/random/">
-                        <button
-                            type="button"
-                            className={`${
-                                router.pathname === '/random'
-                                    ? ' hover:bg-blue-400  bg-blue-300 dark:bg-yellow-500'
-                                    : ''
-                            } text-base  rounded-r-none  hover:scale-110 focus:outline-none  flex justify-center px-2 py-1 rounded font-bold cursor-pointer hover:bg-teal-200  bg-teal-100 border duration-200 ease-in-out text-teal-700 transition`}>
-                            <div className="flex leading-5 text-xs sm:text-md">Random</div>
-                        </button>
-                    </Link>
-                    <Link href="/">
-                        <button
-                            type="button"
-                            className={`${
-                                router.pathname === '/'
-                                    ? ' hover:bg-blue-400  bg-blue-300 dark:bg-yellow-500'
-                                    : ''
-                            } text-base  rounded-l-none border-l-0  hover:scale-110 focus:outline-none flex justify-center px-2 py-1 rounded font-bold cursor-pointer   text-gray-700  border duration-200 ease-in-out  transition`}>
-                            <div className="flex leading-5 text-xs sm:text-md">Scrolling</div>
-                        </button>
-                    </Link>
-                </div>
                 <button
                     type="button"
                     className=" inline-flex p-1 hover:bg-yellow-600 rounded lg:hidden dark:text-white md:ml-auto hover:text-white outline-none"

@@ -14,11 +14,11 @@ async function handler({ query: { slug } }, res) {
         res.json('Not Found');
     }
     const tag = slug[0];
-    const cursor = slug[1];
+    const cursor = slug[1] ? slug[1] : '';
 
-    const data = await fetcher(
-        `https://9gag.com/v1/tag-posts/tag/${tag}/type/trending?c=${cursor}&nsfw=1`
-    );
+    // And produce a response with the new headers
+    const apiUrl = `https://9gag.com/v1/tag-posts/tag/${tag}/type/trending?${cursor}&nsfw=1`;
+    const data = await fetcher(apiUrl);
     // const buff = await request.get(newUrl);
     res.status(200);
     res.json(data);
