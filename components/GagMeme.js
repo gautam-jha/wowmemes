@@ -10,9 +10,7 @@ function GagMeme(props) {
 
     const { data, loading } = props;
     const getImageUrl = (type, images) => {
-        return new URL(
-            images.image700?.webpUrl ?? 'https://fakeurltobypass.com/loading-buffering.gif'
-        );
+        return new URL(images.image700?.url ?? 'https://fakeurltobypass.com/loading-buffering.gif');
     };
     const mediaUrl =
         data.type !== 'Animated'
