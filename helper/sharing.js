@@ -20,7 +20,8 @@ export default async function webShare({ title: text }, mediaUrl) {
     if (navigator.share && mediaUrl) {
         const fileName = getFileNameFromUrl(mediaUrl);
         const fileType = getFileTypeFromUrl(mediaUrl);
-        const fileUrl = fileType !== 'video/mp4' ? mediaUrl : `${process.env.PROXY_URL}${mediaUrl}`;
+        const fileUrl =
+            fileType !== 'video/mp4' ? mediaUrl : `${process.env.NEXT_PUBLIC_PROXY_URL}${mediaUrl}`;
 
         const response = await fetch(fileUrl);
         const blob = await response.blob();
