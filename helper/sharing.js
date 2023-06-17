@@ -11,7 +11,7 @@ export default async function webShare({ title: text }, element) {
         });
     } else if (navigator.share && element instanceof HTMLVideoElement) {
         const videoUrl = element.children[0].src;
-        const filePromise = fetch(videoUrl)
+        const filePromise = fetch(`https://proxy.cors.sh/${videoUrl}`)
             .then(response => response.blob())
             .then(blob => new File([blob], 'video.mp4', { type: 'video/mp4' }));
 
