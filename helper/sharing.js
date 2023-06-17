@@ -1,23 +1,32 @@
-export default async function webShare({ title: text }, element) {
-    if (navigator.share && element instanceof HTMLImageElement) {
-        const imageUrl = element.src;
-        const filePromise = fetch(imageUrl)
-            .then(response => response.blob())
-            .then(blob => new File([blob], 'image.jpg', { type: 'image/jpeg' }));
+function getFileNameFromUrl(url) {
+    const path = url.split('/').pop();
+    return path.split('?')[0];
+}
 
-        filePromise.then(file => {
-            const filesArray = [file];
-            navigator.share({ files: filesArray });
-        });
-    } else if (navigator.share && element instanceof HTMLVideoElement) {
-        const videoUrl = element.children[0].src;
-        const filePromise = fetch(`https://proxy.cors.sh/${videoUrl}`)
-            .then(response => response.blob())
-            .then(blob => new File([blob], 'video.mp4', { type: 'video/mp4' }));
+function getFileTypeFromUrl(url) {
+    const extension = url.split('.').pop();
+    const fileTypes = {
+        jpg: 'image/jpeg',
+        jpeg: 'image/jpeg',
+        png: 'image/png',
+        gif: 'image/gif',
+        mp4: 'video/mp4'
+        // Add more file types as needed
+    };
+    return fileTypes[extension.toLowerCase()] || '';
+}
 
-        filePromise.then(file => {
-            const filesArray = [file];
-            navigator.share({ files: filesArray, text, title: 'memeshub' });
-        });
+export default async function webShare({ title: text }, mediaUrl) {
+    if (navigator.share && mediaUrl) {
+        const fileName = getFileNameFromUrl(mediaUrl);
+        const fileType = getFileTypeFromUrl(mediaUrl);
+        const fileUrl = fileType !== 'video/mp4' ? mediaUrl : `https://proxy.cors.sh/${mediaUrl}`;
+
+        const response = await fetch(fileUrl);
+        const blob = await response.blob();
+        const file = new File([blob], fileName, { type: fileType });
+
+        const filesArray = [file];
+        navigator.share({ files: filesArray, text, title: 'memeshub' });
     }
 }

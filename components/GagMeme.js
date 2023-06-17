@@ -9,7 +9,6 @@ function GagMeme(props) {
     // const posts = props?.featured?.data?.posts;
 
     const { data, loading } = props;
-    const element = React.useRef(null);
     const getImageUrl = (type, images) => {
         return new URL(
             images.image700?.webpUrl ?? 'https://fakeurltobypass.com/loading-buffering.gif'
@@ -36,10 +35,9 @@ function GagMeme(props) {
                         layout="responsive"
                         height="400"
                         width="400"
-                        ref={element}
                     />
                 ) : (
-                    <video controls="true" style={{ width: '100%' }} ref={element}>
+                    <video controls="true" style={{ width: '100%' }}>
                         <source src={mediaUrl} />
                         <track kind="captions" srcLang="en" label="english_captions" />
                     </video>
@@ -48,8 +46,8 @@ function GagMeme(props) {
             <div className="px-6 py-4 m-1 social_icons">
                 <button
                     type="button"
-                    onClick={() => webShare(data, element.current)}
-                    onTouchEndCapture={() => webShare(data, element.current)}
+                    onClick={() => webShare(data, mediaUrl)}
+                    onTouchEndCapture={() => webShare(data, mediaUrl)}
                     className="focus:outline-none inline-block md:hidden">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
