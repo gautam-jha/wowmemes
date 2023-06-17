@@ -20,7 +20,7 @@ function GagMeme(props) {
             ? `https://i2.wp.com/${getImageUrl(data.type, data.images).hostname}${
                   getImageUrl(data.type, data.images).pathname
               }`
-            : data.images.image460sv.vp8Url;
+            : data.images.image460sv.url;
 
     return data && !loading ? (
         <div

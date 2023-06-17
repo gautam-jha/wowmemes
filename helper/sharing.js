@@ -24,7 +24,6 @@ export async function webShare({ title: text }, filesUrl) {
 
     // Handle file urls
     if (filesUrl && filesUrl.length > 0) {
-        // const filesGetter = filesUrl.map(file => urlToObject(file));
         const filesGetter = [urlToObject(filesUrl)];
         const newFiles = await Promise.all(filesGetter);
 
