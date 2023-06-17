@@ -7,7 +7,7 @@ const handleShareError = message => {
 };
 
 export const urlToObject = async url => {
-    const response = await fetch(url);
+    const response = await fetch(url, { mode: 'no-cors' });
     const fileName = url.split('/').pop();
     const blob = await response.blob();
     const file = new File([blob], fileName, { type: blob.type });
@@ -37,7 +37,7 @@ export async function webShare({ title: text }, filesUrl) {
 
     // Share content
     try {
-        await navigator.share({ text, files });
+        await navigator.share({ text, files, title: text });
     } catch (error) {
         handleShareError(`Error sharing: ${error}`);
     }

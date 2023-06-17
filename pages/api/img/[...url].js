@@ -13,7 +13,7 @@ async function handler({ query: { url } }, res) {
         res.json('Not Found');
     }
     // process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
-    const newUrl = decodeURIComponent(url[0]);
+    const newUrl = url[0];
     res.status(200);
     const buff = await request.get(newUrl);
     res.send(buff);
