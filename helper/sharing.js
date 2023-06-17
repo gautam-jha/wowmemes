@@ -1,44 +1,23 @@
-const handleShareError = message => {
-    // eslint-disable-next-line
-    console.warn({
-        type: 'error',
-        message
-    });
-};
+export default async function webShare({ title: text }, element) {
+    if (navigator.share && element instanceof HTMLImageElement) {
+        const imageUrl = element.src;
+        const filePromise = fetch(imageUrl)
+            .then(response => response.blob())
+            .then(blob => new File([blob], 'image.jpg', { type: 'image/jpeg' }));
 
-export const urlToObject = async url => {
-    const response = await fetch(url, { mode: 'no-cors' });
-    const fileName = url.split('/').pop();
-    const blob = await response.blob();
-    const file = new File([blob], fileName, { type: blob.type });
-    return file;
-};
+        filePromise.then(file => {
+            const filesArray = [file];
+            navigator.share({ files: filesArray });
+        });
+    } else if (navigator.share && element instanceof HTMLVideoElement) {
+        const videoUrl = element.children[0].src;
+        const filePromise = fetch(videoUrl)
+            .then(response => response.blob())
+            .then(blob => new File([blob], 'video.mp4', { type: 'video/mp4' }));
 
-export async function webShare({ title: text }, filesUrl) {
-    let files;
-    // Test compatibility
-    if (navigator.share === undefined) {
-        handleShareError('Unsupported share feature');
-        return;
-    }
-
-    // Handle file urls
-    if (filesUrl && filesUrl.length > 0) {
-        const filesGetter = [urlToObject(filesUrl)];
-        const newFiles = await Promise.all(filesGetter);
-
-        if (!navigator.canShare || !navigator.canShare({ files: newFiles })) {
-            handleShareError('Unsupported share feature');
-            return;
-        }
-
-        files = newFiles;
-    }
-
-    // Share content
-    try {
-        await navigator.share({ text, files, title: text });
-    } catch (error) {
-        handleShareError(`Error sharing: ${error}`);
+        filePromise.then(file => {
+            const filesArray = [file];
+            navigator.share({ files: filesArray, text, title: 'memeshub' });
+        });
     }
 }
