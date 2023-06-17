@@ -8,8 +8,9 @@ const handleShareError = message => {
 
 export const urlToObject = async url => {
     const response = await fetch(url);
+    const fileName = url.split('/').pop();
     const blob = await response.blob();
-    const file = new File([blob], 'image.jpg', { type: blob.type });
+    const file = new File([blob], fileName, { type: blob.type });
     return file;
 };
 
