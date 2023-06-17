@@ -11,11 +11,16 @@ function GagMeme(props) {
     const { data, loading } = props;
 
     const getImageUrl = (type, images) => {
-        return new URL(type !== 'Animated' ? images.image700.webpUrl : images.image460sv.vp8Url);
+        return new URL(
+            images.image700?.webpUrl ?? 'https://fakeurltobypass.com/loading-buffering.gif'
+        );
     };
-    const urlObj = new URL(
-        data?.url ? data.url : 'https://fakeurltobypass.com/loading-buffering.gif'
-    );
+    const mediaUrl =
+        data.type !== 'Animated'
+            ? `https://i2.wp.com/${getImageUrl(data.type, data.images).hostname}${
+                  getImageUrl(data.type, data.images).pathname
+              }`
+            : data.images.image460sv.vp8Url;
 
     return data && !loading ? (
         <div
@@ -25,9 +30,7 @@ function GagMeme(props) {
                 {data.type !== 'Animated' ? (
                     <img
                         className="w-full lazy"
-                        src={`https://i2.wp.com/${getImageUrl(data.type, data.images).hostname}${
-                            getImageUrl(data.type, data.images).pathname
-                        }`}
+                        src={mediaUrl}
                         alt={data.title}
                         sizes="(min-width: 400px) 80vw, 100vw"
                         layout="responsive"
@@ -36,7 +39,7 @@ function GagMeme(props) {
                     />
                 ) : (
                     <video controls="true" style={{ width: '100%' }}>
-                        <source src={data.images.image460sv.vp8Url} />
+                        <source src={mediaUrl} />
                         <track kind="captions" srcLang="en" label="english_captions" />
                     </video>
                 )}
@@ -44,12 +47,8 @@ function GagMeme(props) {
             <div className="px-6 py-4 m-1 social_icons">
                 <button
                     type="button"
-                    onClick={() =>
-                        webShare(data, `https://i2.wp.com/${urlObj.hostname}${urlObj.pathname}`)
-                    }
-                    onTouchEndCapture={() =>
-                        webShare(data, `https://i2.wp.com/${urlObj.hostname}${urlObj.pathname}`)
-                    }
+                    onClick={() => webShare(data, mediaUrl)}
+                    onTouchEndCapture={() => webShare(data, mediaUrl)}
                     className="focus:outline-none inline-block md:hidden">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

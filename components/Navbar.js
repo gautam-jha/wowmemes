@@ -1,14 +1,19 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useTheme } from 'next-themes';
+import Context from './context';
 
 const Navbar = () => {
+    const { typeChange, type } = useContext(Context);
+
     const [active, setActive] = useState(false);
     const { theme, setTheme } = useTheme();
 
     const handleClick = () => {
         setActive(!active);
     };
+
+    const availableType = ['Fresh', 'Trending', 'Top'];
 
     return (
         <>
@@ -23,6 +28,21 @@ const Navbar = () => {
                         />
                     </a>
                 </Link>
+                <div className="flex">
+                    {availableType.map(btnType => (
+                        <button
+                            key={btnType}
+                            type="button"
+                            onClick={() => typeChange(btnType.toLowerCase())}
+                            className={`${
+                                type === btnType.toLowerCase()
+                                    ? ' hover:bg-blue-400  bg-blue-300 dark:bg-yellow-500'
+                                    : ''
+                            } text-base  hover:scale-110 focus:outline-none flex justify-center px-2 py-1 font-bold cursor-pointer   text-gray-700  border duration-200 ease-in-out  transition`}>
+                            <div className="flex leading-5 text-xs sm:text-md">{btnType}</div>
+                        </button>
+                    ))}
+                </div>
                 <button
                     type="button"
                     className=" inline-flex p-1 hover:bg-yellow-600 rounded lg:hidden dark:text-white md:ml-auto hover:text-white outline-none"

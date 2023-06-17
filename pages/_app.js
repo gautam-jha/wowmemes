@@ -10,37 +10,32 @@ import { getMemesByCategory } from '../helper';
 function MyApp({ Component, pageProps }) {
     const [category, setCategory] = useState('memes');
     const [cursor, setCursor] = useState('c=0');
+    const [type, setType] = useState('trending');
 
-    const [data, setData] = useState({});
     const [memes, setMemes] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const suffle = async () => {
-        setLoading(true);
-        const resp = await getMemesByCategory(category, cursor);
-        setCursor(resp.data.nextCursor);
-        setData([resp?.data.posts[0]]);
-        setLoading(false);
-    };
-
     const loadNext = async () => {
-        const d = await getMemesByCategory(category, cursor);
+        const d = await getMemesByCategory(type, category, cursor);
         setCursor(d.data?.nextCursor);
         if (!d.data?.posts?.length) {
             setLoading(false);
         }
         setMemes([...memes, ...d.data?.posts]);
-        // console.log(memes.length);
     };
 
     useEffect(() => {
-        setMemes([]);
-        // if (router.pathname === '/random') suffle();
         loadNext();
-    }, [category]);
+    }, [category, type]);
 
     const catChange = cat => {
         setCategory(cat);
+        setMemes([]);
+        setCursor('c=0');
+    };
+
+    const typeChange = t => {
+        setType(t);
         setMemes([]);
         setCursor('c=0');
     };
@@ -50,9 +45,9 @@ function MyApp({ Component, pageProps }) {
             value={{
                 category,
                 catChange,
-                suffle,
+                type,
+                typeChange,
                 loadNext,
-                data,
                 loading,
                 memes,
                 setMemes

@@ -6,9 +6,9 @@ const fetcher = async url => {
     return data;
 };
 
-const getMemesByCategory = async (cat, count) => {
-    const cursor = count ? `${count}/` : '';
-    const data = await fetcher(`${prefix}/api/gag/${cat}/${cursor}`);
+const getMemesByCategory = async (type, cat, count) => {
+    const cursor = count ? `${count}` : '';
+    const data = await fetcher(`${prefix}/api/gag/${type}/${cat}/${cursor}/`);
     return data;
 };
 
